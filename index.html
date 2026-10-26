@@ -157,7 +157,7 @@ footer small{color:#9ba2b0}
 <figure class="c1"><img src="img/h1.jpg" width="720" height="960" alt="Pelbagai kek dan pastri HH Kek & Kopi" data-en-alt="A spread of HH Kek & Kopi cakes and pastries" fetchpriority="high"></figure>
 <figure class="c2"><img src="img/h2.jpg" width="560" height="560" alt="Pastri merah bertabur gula" data-en-alt="Red sugar-dusted pastries"></figure>
 <figure class="c3"><img src="img/h3.jpg" width="560" height="560" alt="Minuman sejuk HH berkrim" data-en-alt="HH iced drinks with cream"></figure>
-<div class="badge"><i aria-hidden="true">☕</i><span><b data-en="Open every day">Buka setiap hari</b><small data-en="From 11.30am">Dari 11.30 pagi</small></span></div>
+<div class="badge"><i aria-hidden="true">★</i><span><b data-en="Open every day">Buka setiap hari</b><small data-en="From 11.30am">Dari 11.30 pagi</small></span></div>
 </div>
 </div></section>
 
@@ -237,7 +237,7 @@ function upd(){
  const br=(on('br')[0]||qa('.chip[data-g="br"]')[0]).textContent.trim(),oc=on('oc').map(txt)[0]||'',msg=q('#msg').value.trim(),dt=q('#dt').value,tm=q('#tm').value,pax=q('#pax').value;
  let al='';
  if(tm){const h=+tm.split(':')[0]+(+tm.split(':')[1])/60;if(h<11.5)al+='<p class="alert warn">'+T('Kafe dibuka jam 11.30 pagi. Pilih masa selepas itu.','The café opens at 11.30am. Choose a later time.')+'</p>';else if(h>22.5)al+='<p class="alert warn">'+T('Pesanan dapur terakhir jam 10.30 malam.','Last kitchen order is at 10.30pm.')+'</p>'}
- if(dt){const n=daysTo(dt);if(n<0)al+='<p class="alert warn">'+T('Tarikh ini sudah lepas.','This date has passed.')+'</p>';else if(cake&&n<2)al+='<p class="alert warn">'+T('Kek tempahan untuk esok atau hari ini? WhatsApp kami dahulu untuk semak sama ada sempat.','Cake for today or tomorrow? WhatsApp us first to check if we can make it.')+'</p>';else al+='<p class="alert ok">'+T('Dibuka setiap hari dari 11.30 pagi.','Open daily from 11.30am.')+'</p>'}
+ if(dt){const n=daysTo(dt);if(n<0)al+='<p class="alert warn">'+T('Tarikh ini sudah lepas.','This date has passed.')+'</p>';else if(cake&&n<2)al+='<p class="alert warn">'+T('Kek tempahan untuk esok atau hari ini? WhatsApp kami dahulu untuk semak sama ada sempat.','Cake for today or tomorrow? WhatsApp us first to check if we can make it.')+'</p>';else if(!al)al='<p class="alert ok">'+T('Dibuka setiap hari dari 11.30 pagi.','Open daily from 11.30am.')+'</p>'}
  q('#ra').innerHTML=al;
  q('#rh').textContent=nd.length?(cake&&tbl?T('Kek + meja','Cake + table'):cake?T('Tempahan kek','Cake order'):T('Tempahan meja','Table booking')):T('Pilih kek atau meja','Choose cake or table');
  const ok=nd.length>0,go=q('#go');go.setAttribute('aria-disabled',!ok);go.textContent=T('Hantar ke WhatsApp','Send to WhatsApp');
